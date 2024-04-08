@@ -1,0 +1,30 @@
+--Crear el package.json
+npm init -y
+
+--crear carpeta src en raiz
+--dentro de src crear carpeta controllers,services,database,routes\
+--dentro de src crear un index.js
+
+--intalar las sig dependecias
+ npm install -D nodemon
+ npm instal express
+
+ nota: nodemon es una dependencia unicamente para recargar el servidor de desarrollo y no tener que reiniciarlo manualmente cada vez que se realiza un cambio.
+ 
+--agregar los sig enscripts del package.json
+  "start": "node ./src/index.js",
+  "dev" : "nodemon ./src/index.js",
+
+-libreria usada para la generacion de id
+npm install uuid
+
+--para el modelado de la bd
+npm install sequelize-auto --save-dev
+
+
+npm install mysql2
+
+--comando para generar los modelos
+
+npx sequelize-auto -o "./models" -d gobussappbd -h localhost -u root -p minecraftPE1976 -e mysql
+

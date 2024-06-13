@@ -28,3 +28,5 @@ npm install mysql2
 
 npx sequelize-auto -o "./models" -d gobussappbd -h localhost -u root -p minecraftPE1976 -e mysql
 
+-instalar token
+npm intall jsonwebtoken

@@ -1,6 +1,7 @@
 const { login } = require('../database/loginDB');
 const { registerUser } = require('../database/loginDB');
 const user = require('../models/user');
+const jwt = require('jsonwebtoken');
 
 const loginUser = async (req, res) => {
     const { body } = req;
@@ -18,8 +19,14 @@ const loginUser = async (req, res) => {
                 message: "Credenciales incorrectas"
             });
         } else {
+            const token = jwt.sign({
+                id: user.id,
+                email: user.email
+            }, 'secretkeyadsdasd', {
+                expiresIn: 60 * 60 * 24
+            });
             return res.status(200).send({
-                data: user,
+                data: token,
                 message: "Login success"
             });
         }
